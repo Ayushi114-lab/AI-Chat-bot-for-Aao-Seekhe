@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website - Example Integration</title>
+    <style>
+        /* Your existing website styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <!-- Your website content -->
+    <div class="content">
+        <h1>Welcome to AaoSeekhe Website</h1>
+        <p>This is your main website content. The chatbot widget will appear at the bottom right corner.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+
+    <!-- CHATBOT WIDGET INTEGRATION -->
+    <!-- Step 1: Include the widget styles -->
+    <link rel="stylesheet" href="widget-styles.css">
+    
+    <!-- Step 2: Include the widget HTML -->
+    <div class="chat-widget" id="chatWidget">
+        <!-- Preview Message Bubble -->
+        <div class="preview-message" id="previewMessage">
+            <button class="preview-close" id="previewClose">&times;</button>
+            <div class="preview-text">Can I help you?</div>
+            <div class="preview-subtitle">Ask about courses & admissions</div>
+        </div>
+
+        <div class="chat-toggle" id="chatToggle">
+            <span id="toggleIcon">💬</span>
+            <div class="notification-badge" id="notificationBadge">1</div>
+        </div>
+
+        <div class="chat-container" id="chatContainer">
+            <div class="chat-header">
+                <button class="chat-close" id="chatClose">&times;</button>
+                <h3>AaoSeekhe Assistant</h3>
+                <p>How can I help you today?</p>
+            </div>
+
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot">
+                    <div class="message-avatar">🎓</div>
+                    <div class="message-content">
+                        Hi! I'm here to help you with test preparation and study abroad consultation at AaoSeekhe. What would you like to know?
+                        <div class="quick-actions">
+                            <div class="quick-btn" onclick="sendQuickMessage('GMAT coaching')">GMAT</div>
+                            <div class="quick-btn" onclick="sendQuickMessage('GRE preparation')">GRE</div>
+                            <div class="quick-btn" onclick="sendQuickMessage('IELTS courses')">IELTS</div>
+                            <div class="quick-btn" onclick="sendQuickMessage('Contact information')">Contact</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="typing-indicator" id="typingIndicator">
+                    <div class="message-avatar">🎓</div>
+                    <div class="typing-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-input-container">
+                <div class="input-wrapper">
+                    <textarea 
+                        id="chatInput" 
+                        class="chat-input" 
+                        placeholder="Ask about courses, pricing..."
+                        rows="1"
+                    ></textarea>
+                    <button class="send-btn" id="sendBtn">➤</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 3: Include the widget scripts -->
+    <script src="config.js"></script>
+    <script src="rag.js"></script>
+    <script src="widget-script.js"></script>
+</body>
+</html>
